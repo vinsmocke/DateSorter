@@ -29,7 +29,7 @@ public class DateSorterTest {
         DateSorter dateSorter = new DateSorter();
         Collection<LocalDate> sortedList = dateSorter.sortDates(listDates());
 
-        assertNotNull(expected);
+        assertNotNull(sortedList);
         assertEquals(expected, sortedList);
         assertEquals(expected.size(), sortedList.size());
 
