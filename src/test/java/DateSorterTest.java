@@ -19,17 +19,19 @@ public class DateSorterTest {
     @DisplayName("Sorting test")
     @Test
     public void sort(){
-        List<LocalDate> sortedList = new ArrayList<>();
-        sortedList.add(LocalDate.of(2005, Month.JANUARY, 1));
-        sortedList.add(LocalDate.of(2005, Month.JANUARY, 2));
-        sortedList.add(LocalDate.of(2005, Month.MARCH, 3));
-        sortedList.add(LocalDate.of(2005, Month.JULY, 1));
-        sortedList.add(LocalDate.of(2005, Month.MAY, 3));
-        DateSorter dateSorter = new DateSorter();
+        Collection<LocalDate> expected = new ArrayList<>();
+        expected.add(LocalDate.of(2005, Month.JANUARY, 1));
+        expected.add(LocalDate.of(2005, Month.JANUARY, 2));
+        expected.add(LocalDate.of(2005, Month.MARCH, 3));
+        expected.add(LocalDate.of(2005, Month.JULY, 1));
+        expected.add(LocalDate.of(2005, Month.MAY, 3));
 
-        assertNotNull(sortedList);
-        assertEquals(sortedList, dateSorter.sortDates(listDates()));
-        assertEquals(sortedList.size(), dateSorter.sortDates(listDates()).size());
+        DateSorter dateSorter = new DateSorter();
+        Collection<LocalDate> sortedList = dateSorter.sortDates(listDates());
+
+        assertNotNull(expected);
+        assertEquals(expected, sortedList);
+        assertEquals(expected.size(), sortedList.size());
 
         System.out.println("List before sorting: " + listDates());
         System.out.println("List after sorting: " + dateSorter.sortDates(listDates()));
